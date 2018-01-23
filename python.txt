@@ -1,21 +1,73 @@
 import random
 
-numRand = 0
+
+
+numRand = 1
 
 
 fo = open("static_foutune.txt", "r+");
 
 
-str = input("Enter your input: ")
+# function for reading foutune
 
-if (str != "") : 
-   
- 	numRand = random.randrange(1,15)
-   
- 	print("rand : " , numRand)
+
+
+def readFoutune(numRand) :
     
-  	str1 = fo.read();
+	
+	str1 = fo.read();
     
-	str2 = str1.split(',')
-   
- 	print ("foutune : " , str2[numRand])
+	
+	str2 = str1.split('#')
+    
+	
+	print ("Foutune Result : " , str2[numRand-1])
+    
+	
+	return;
+
+
+
+
+# functin for writing foutune number 
+def writeFoutune(numRand) :
+  
+	temp = str(numRand)
+  
+	print ("Fortune number : " + temp)
+  
+	fh = open("static_foutune.txt", "a") 
+  
+	fh.write('Fortune number : ' + temp + '\n')
+
+  
+	fh.close();
+  
+	return;
+
+
+
+
+strin = input("Enter your input: ")
+
+
+if (strin != "") : 
+
+    
+	
+	numRand = random.randrange(1,10)
+    
+	
+	print("rand : " , numRand)
+    
+	
+	readFoutune(numRand)
+    
+	
+	writeFoutune(numRand)
+
+
+
+
+fo.close();
+	
